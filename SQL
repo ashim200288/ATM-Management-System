@@ -1,0 +1,24 @@
+CREAT DATABASE ATM;
+customers Table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    full_name VARCHAR(100),
+    date_of_birth DATE,
+    phone_number VARCHAR(15),
+    email VARCHAR(100)
+);
+accounts Table
+CREATE TABLE accounts (
+    account_id INT PRIMARY KEY,
+    customer_id INT,
+    account_number VARCHAR(20) UNIQUE,
+    account_type VARCHAR(20),
+    balance DECIMAL(12, 2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+atm
+CREATE TABLE atms (
+    atm_id INT PRIMARY KEY,
+    location VARCHAR(100),
+    status VARCHAR(20) 
+);
